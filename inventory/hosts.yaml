@@ -1,0 +1,21 @@
+---
+SW1:
+  hostname: 10.1.64.52
+  port: 2021
+  groups:
+    - cisco
+SW2:
+  hostname: 10.1.64.52
+  port: 2022
+  groups:
+    - cisco
+SW3:
+  hostname: 10.1.64.52
+  port: 2023
+  groups:
+    - cisco
+SW4:
+  hostname: 10.1.64.52
+  port: 2024
+  groups:
+    - cisco
