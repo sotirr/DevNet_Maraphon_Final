@@ -1,21 +1,36 @@
 ---
+R2:
+  hostname: 10.1.64.52
+  port: 22
+  groups:
+    - cisco
+  data:
+    role: wan
 SW1:
   hostname: 10.1.64.52
   port: 2021
   groups:
     - cisco
+  data:
+    role: core
 SW2:
   hostname: 10.1.64.52
   port: 2022
   groups:
     - cisco
+  data:
+    role: core 
 SW3:
   hostname: 10.1.64.52
   port: 2023
   groups:
     - cisco
+  data:
+    role: access
 SW4:
   hostname: 10.1.64.52
   port: 2024
   groups:
     - cisco
+  data:
+    role: access
