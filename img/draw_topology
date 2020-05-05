@@ -1,0 +1,17 @@
+graph "Network Topology" {
+	rankdir=BT splines=line
+	"R2.pyeng.lab" [margin=0.3 shape=box]
+	"SW4.pyeng.lab" [margin=0.3 shape=box]
+	"SW2.pyeng.lab" [margin=0.3 shape=box]
+	"SW3.pyeng.lab" [margin=0.3 shape=box]
+	"SW1.pyeng.lab" [margin=0.3 shape=box]
+	"SW1.pyeng.lab" -- "R2.pyeng.lab" [fontsize=10 headlabel="Et0/2" minlen=4 taillabel="Gi0/0"]
+	"SW2.pyeng.lab" -- "SW1.pyeng.lab" [constraint=false fontsize=10 headlabel="Gi0/3" minlen=10 taillabel="Gi0/3"]
+	"SW2.pyeng.lab" -- "SW1.pyeng.lab" [constraint=false fontsize=10 headlabel="Gi1/0" minlen=10 taillabel="Gi1/0"]
+	"SW3.pyeng.lab" -- "SW1.pyeng.lab" [fontsize=10 headlabel="Gi0/1" minlen=4 taillabel="Gi0/2"]
+	"SW3.pyeng.lab" -- "SW2.pyeng.lab" [fontsize=10 headlabel="Gi1/1" minlen=4 taillabel="Gi1/1"]
+	"SW3.pyeng.lab" -- "SW2.pyeng.lab" [fontsize=10 headlabel="Gi0/2" minlen=4 taillabel="Gi0/1"]
+	"SW4.pyeng.lab" -- "SW1.pyeng.lab" [fontsize=10 headlabel="Gi0/2" minlen=4 taillabel="Gi0/2"]
+	"SW4.pyeng.lab" -- "SW3.pyeng.lab" [constraint=false fontsize=10 headlabel="Gi0/3" minlen=10 taillabel="Gi0/3"]
+	"SW4.pyeng.lab" -- "SW2.pyeng.lab" [fontsize=10 headlabel="Gi0/1" minlen=4 taillabel="Gi0/1"]
+}
