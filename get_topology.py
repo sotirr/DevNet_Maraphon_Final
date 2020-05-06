@@ -2,13 +2,14 @@ from nornir import InitNornir
 from nornir.plugins.tasks.networking import (netmiko_send_command,
                                              netmiko_save_config,
                                              netmiko_send_config)
+from datetime import datetime
 import os
 import yaml
 
 os.environ['NET_TEXTFSM'] = './ntc-templates/templates'
 
 
-def get_topology(filename='topology.yaml'):
+def get_topology():
     '''
     Парсит вывод команды sh lldp neighbors.
     Предварительно проверяет включен ли lldp на устройствах
@@ -20,7 +21,9 @@ def get_topology(filename='topology.yaml'):
     {'role': host1: [рапарсенный вывод команды sh lldp neighbors],
              host2: [рапарсенный вывод команды sh lldp neighbors],
      ...}
-
+    
+    если файл с топологией существовал то переименовывает его в 
+    topology_old.yaml
     '''
     with InitNornir(config_file='config.yaml') as nr:
         # проверяем включен ли lldp и если нет то включаем
@@ -29,7 +32,16 @@ def get_topology(filename='topology.yaml'):
         output = nr.run(netmiko_send_command, command_string='show lldp neighbors', enable=True, use_textfsm=True)
     # превращаем обьекты норнира в удобноваримый словарь
     topology = normilize_data(output, nr.inventory.hosts)
-    with open(filename, 'w') as file:
+
+    if not os.path.exists('data'):
+        os.mkdir('data')
+
+    if os.path.isfile('data/topology.yaml'):
+        if os.path.isfile('data/topology_old.yaml'):
+            os.remove('data/topology_old.yaml')
+        os.rename(r'data/topology.yaml', r'data/topology_old.yaml')
+
+    with open('data/topology.yaml', 'w') as file:
         yaml.dump(topology, file)
 
 
