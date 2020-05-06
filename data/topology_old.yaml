@@ -16,40 +16,17 @@ SW1.pyeng.lab:
     neighbor: SW4.pyeng.lab
     neighbor_interface: Gi0/2
   - capabilities: R
-    local_interface: Gi1/0
-    neighbor: SW2.pyeng.lab
-    neighbor_interface: Gi1/0
-  - capabilities: R
     local_interface: Gi0/1
     neighbor: SW3.pyeng.lab
     neighbor_interface: Gi0/2
   - capabilities: R
+    local_interface: Gi1/0
+    neighbor: SW2.pyeng.lab
+    neighbor_interface: Gi1/0
+  - capabilities: R
     local_interface: Gi0/3
     neighbor: SW2.pyeng.lab
     neighbor_interface: Gi0/3
-  role: core
-SW2.pyeng.lab:
-  neighbors:
-  - capabilities: R
-    local_interface: Gi0/3
-    neighbor: SW1.pyeng.lab
-    neighbor_interface: Gi0/3
-  - capabilities: R
-    local_interface: Gi1/0
-    neighbor: SW1.pyeng.lab
-    neighbor_interface: Gi1/0
-  - capabilities: R
-    local_interface: Gi0/2
-    neighbor: SW3.pyeng.lab
-    neighbor_interface: Gi0/1
-  - capabilities: R
-    local_interface: Gi1/1
-    neighbor: SW3.pyeng.lab
-    neighbor_interface: Gi1/1
-  - capabilities: R
-    local_interface: Gi0/1
-    neighbor: SW4.pyeng.lab
-    neighbor_interface: Gi0/1
   role: core
 SW3.pyeng.lab:
   neighbors:
